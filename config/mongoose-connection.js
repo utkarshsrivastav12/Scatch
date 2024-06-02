@@ -1,14 +1,15 @@
-const { log } = require("console");
-const mongoose = require("mongoose");
 
-mongoose
-.connect("mongodb://127.0.0.1:27017/scatch")
-.then(function(){
-    console.log("connected");
-})
-.catch(function(err){
-    console.log(err);
-})
+const mongoose = require('mongoose');
 
-module.exports = mongoose.connection;
+// Connection URI
+const uri = 'mongodb://127.0.0.1:27017';
+
+// Connect to MongoDB
+mongoose.connect(uri)
+  .then(() => {
+    console.log('MongoDB connected successfully');
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+  });
 
